@@ -14,17 +14,28 @@ class Posting(models.Model):
     job_description = models.TextField()
     logo = models.URLField()
 
+    @staticmethod
+    def submitted(company, job_title, location, job_function, employment_type,
+                  company_industry, seniority_level, job_description, logo):
+        Posting(
+            company=company,
+            job_title=job_title,
+            location=location,
+            job_function=job_function,
+            employment_type=employment_type,
+            company_industry=company_industry,
+            seniority_level=seniority_level,
+            job_description=job_description,
+            logo=logo).save()
 
-@staticmethod
-def submitted(company, job_title, location, job_function, employment_type,
-              company_industry, seniority_level, job_description, logo):
-    Posting(
-        company=company,
-        job_title=job_title,
-        location=location,
-        job_function=job_function,
-        employment_type=employment_type,
-        company_industry=company_industry,
-        seniority_level=seniority_level,
-        job_description=job_description,
-        logo=logo).save()
+    def __str__(self):
+        return '''
+            Company Name: {}
+            Job Title: {}
+            Job Location: {}
+            Employment Type: {}
+            Seniority Level: {}
+            Job Description: {}
+            '''.format(self.company, self.job_title, self.location,
+                       self.employment_type, self.seniority_level,
+                       self.job_description, self.logo)
