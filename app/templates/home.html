@@ -10,17 +10,17 @@
     <title>Base Camp Job Postings</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
         crossorigin="anonymous" />
-    <link rel="stylesheet" href="./static/style.css">
+    <link rel="stylesheet" href="{% static 'style.css' %}">
 </head>
 
 <body>
     <nav style="background-color: #3b1b0c" class="navbar navbar-expand-lg border bottom border-dark">
         <ul class="navbar-nav mr-auto nav">
             <li class="nav-item">
-                <a class="nav-link text-white" href=""> Job Postings </a>
+                <a class="nav-link text-white" href="{% url 'job' %}"> Job Postings </a>
             </li>
             <li class="nav-item active">
-                <a class=" nav-link text-white" href="{% url 'job' %}">
+                <a class=" nav-link text-white" href="">
                     Employers
                 </a>
             </li>
@@ -37,9 +37,9 @@
         <header id="myCarousel" class="carousel slide ">
             <div class="carousel-inner ">
                 <div class="item active">
-                    <div class="fill " style="background-image:url('./static/images/BaseCamp_HeaderFeature_1.jpg');">
+                    <div class="fill " style="background-image:url({% static 'images/BaseCamp_HeaderFeature_1.jpg' %});">
                         <span class="center-spacer"></span>
-                        <img src="./static/images/BaseCamp_WebLogo_2.png" style="vertical-align:middle;" alt="Base Camp Coding Academy" />
+                        <img src="{% static 'images/BaseCamp_WebLogo_2.png' %}" style="vertical-align:middle;" alt="Base Camp Coding Academy" />
                     </div>
                 </div>
             </div>

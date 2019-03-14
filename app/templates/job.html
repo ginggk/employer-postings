@@ -9,18 +9,112 @@
     <title>Add a Job</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
         crossorigin="anonymous" />
-    <link rel="stylesheet" href="./static/style.css">
+    <link rel="stylesheet" href="{% static 'style.css' %}">
 </head>
 
 <body>
-    <div class="container">
-        <form action="{% url 'job' %}" method="POST">
-            {% csrf_token %}
-            <div class="form-group">
-                {{JobForm}}
 
+    <nav style="background-color: #3b1b0c" class="navbar navbar-expand-lg border bottom border-dark">
+
+        <ul class="navbar-nav mr-auto nav">
+            <li class="nav-item">
+                <a class="nav-link text-white" href="{% url 'home' %}"> Home </a>
+            </li>
+            <li class="nav-item active">
+                <a class=" nav-link text-white" href="">
+                    Employers
+                </a>
+            </li>
+            <li class="nav-item active">
+                <a class=" nav-link text-white" href="">
+                    Resources
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <div class=" ">
+        <header id="myCarousel2" class="carousel slide ">
+            <div class="carousel-inner ">
+                <div class="item active">
+                    <div class="fill " style="background-image:url({% static 'images/BaseCamp_HeaderFeature_1.jpg' %});">
+                        <span class="center-spacer"></span>
+                        <img src="{% static 'images/BaseCamp_WebLogo_2.png' %}" style="vertical-align:middle;" alt="Base Camp Coding Academy" />
+                    </div>
+                </div>
             </div>
-        </form>
+        </header>
+    </div>
+    <div class="container pt-4">
+        <div class="card card-color">
+            <div class="card-header text-center text-white">
+                <h5>Thanks so much for submitting a job to Base Camp Coding Academy!</h5>
+                <p> We just want to know some details about your job posting..</p>
+            </div>
+        </div>
+    </div>
+    <div class="container pt-3 pb-3">
+        <div class="card ">
+            <div class="card-body">
+                <form action="{% url 'job' %}" method="POST">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <label for="company">Company</label>
+                        <input name="company" type="text" class="form-control" placeholder="Your company's name..."
+                            required>
+                    </div>
+                    <div class="form-group">
+                        <label for="job_title">Job Title</label>
+                        <input name="job_title" type="text" class="form-control" placeholder="Job title..." required>
+                    </div>
+                    <div class="form-group">
+                        <label for="location">Location</label>
+                        <input name="location" type="text" class="form-control" placeholder="Where is your job located?"
+                            required>
+                    </div>
+                    <div class="form-group">
+                        <label for="job_function">Job Function</label>
+                        <input name="job_function" type="text" class="form-control" placeholder="Job's function..."
+                            required>
+                    </div>
+                    <div class="form-group">
+                        <label for="employment_type">Employment Type</label>
+                        <input name="employment_type" type="text" class="form-control" placeholder="Part time..."
+                            required>
+                    </div>
+                    <div class="form-group">
+                        <label for="company_industry">Company Industry</label>
+                        <input name="company_industry" type="text" class="form-control" placeholder="Software Development..."
+                            required>
+                    </div>
+                    <div class="form-group">
+                        <label for="seniority_level">Seniority Level</label>
+                        <input name="seniority_level" type="text" class="form-control" placeholder="Manager..."
+                            required>
+                    </div>
+                    <div class="form-group">
+                        <label for="job_description">Job Description</label>
+                        <textarea name="job_description" class="form-control" placeholder="Describe the job..."
+                            required></textarea>
+                    </div>
+                    <div class="form-group">
+
+                        <div class="custom-file">
+                            <input type="file" class="custom-file-input" name="logo">
+                            <label class="custom-file-label" for="logo">Choose file</label>
+                        </div>
+                        <!-- <div class="input-group-append">
+                        <span class="input-group-text" id="inputGroupFileAddon02">Upload</span>
+                        BaseCamp_HeaderFeature_1.jpg
+                        background-image:url({% static 'images/BaseCamp_HeaderFeature_1.jpg' %});
+                    </div> -->
+
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-info">Submit Job Posting!</button>
+                    </div>
+                </form>
+            </div>
+        </div>
     </div>
 
 
