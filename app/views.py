@@ -8,7 +8,9 @@ from . import models
 
 class Home(View):
     def get(self, request):
-        return render(request, 'home.html')
+
+        return render(request, 'home.html',
+                      {'JobForm': models.Posting.objects.all()})
 
 
 class Job(View):
@@ -27,6 +29,9 @@ class Job(View):
             seniority_level = form.cleaned_data['seniority_level']
             job_description = form.cleaned_data['job_description']
             logo = form.cleaned_data['logo']
+            models.Posting.submitted(
+                company, job_title, location, job_function, employment_type,
+                company_industry, seniority_level, job_description, logo)
             return redirect('home')
         else:
             return render(request, 'job.html', {'JobForm': form})
