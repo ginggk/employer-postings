@@ -9,5 +9,5 @@ class JobForm(forms.Form):
     employment_type = forms.CharField()
     company_industry = forms.CharField()
     seniority_level = forms.CharField()
-    job_description = forms.Textarea()
+    job_description = forms.CharField()
     logo = forms.URLField()
