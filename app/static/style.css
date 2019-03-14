@@ -9,11 +9,14 @@
     text-align: center;
     padding-bottom: 3rem;
     padding-top: 1rem;
-
 }
 
 .center-spacer {
     display: inline-block;
     height: 100%;
     vertical-align: middle;
+}
+
+.card-color {
+    background-color: #8accf6;
 }
