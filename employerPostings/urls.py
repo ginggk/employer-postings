@@ -20,5 +20,6 @@ from app import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.Home.as_view(), name='home'),
-    path('jobs/', views.Job.as_view(), name='job')
+    path('jobs/', views.Job.as_view(), name='job'),
+    path('/details/<int:id>', views.PostingDetails.as_view(), name='details')
 ]
