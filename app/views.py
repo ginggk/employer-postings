@@ -47,5 +47,7 @@ class ShowEmployers(View):
     def get(self, request):
         # print(models.Posting.objects.values())
         return render(
-            request, 'employers.html',
-            {'employers': models.Posting.objects.values('company', 'logo')})
+            request, 'employers.html', {
+                'employers':
+                models.Posting.objects.values('company', 'logo').distinct()
+            })
