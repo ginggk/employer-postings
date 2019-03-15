@@ -79,11 +79,14 @@
                                 src="{{ employer.logo }}"
                                 class="special-size pr-3"
                             />
-                            <h1>{{ employer.company }}</h1>
+                            <h1>
+                                {{ employer.company }}
+                            </h1>
                         </div>
                     </div>
                 </div>
             </div>
+
             {% endfor %}
         </div>
 
@@ -102,5 +105,6 @@
             integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
             crossorigin="anonymous"
         ></script>
+        <!-- <script src="{% static 'javascript.js' %}"></script> -->
     </body>
 </html>
