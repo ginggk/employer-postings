@@ -41,3 +41,11 @@ class PostingDetails(View):
     def get(self, request, id):
         return render(request, 'details.html',
                       {'JobForm': models.Posting.objects.get(id=id)})
+
+
+class ShowEmployers(View):
+    def get(self, request):
+        # print(models.Posting.objects.values())
+        return render(
+            request, 'employers.html',
+            {'employers': models.Posting.objects.values('company', 'logo')})
