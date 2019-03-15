@@ -51,3 +51,8 @@ class ShowEmployers(View):
                 'employers':
                 models.Posting.objects.values('company', 'logo').distinct()
             })
+
+
+class ShowResources(View):
+    def get(self, request):
+        return render(request, 'resources.html')
