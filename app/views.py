@@ -35,3 +35,9 @@ class Job(View):
             return redirect('home')
         else:
             return render(request, 'job.html', {'JobForm': form})
+
+
+class PostingDetails(View):
+    def get(self, request, id):
+        return render(request, 'details.html',
+                      {'JobForm': models.Posting.objects.get(id=id)})
