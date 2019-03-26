@@ -29,7 +29,7 @@ class Job(View):
             seniority_level = form.cleaned_data['seniority_level']
             job_description = form.cleaned_data['job_description']
             logo = form.cleaned_data['logo']
-            models.Posting.submitted(
+            models.Posting.submit_post(
                 company, job_title, location, job_function, employment_type,
                 company_industry, seniority_level, job_description, logo)
             return redirect('home')
@@ -56,3 +56,19 @@ class ShowEmployers(View):
 class ShowResources(View):
     def get(self, request):
         return render(request, 'resources.html')
+
+
+class ShowComments(View):
+    def get(self, request, id):
+        return render(request, 'comments.html',
+                      {'comments': forms.CommentForm()})
+
+    def post(self, request, id):
+        form = forms.CommentForm(data=request.POST)
+        if form.is_valid():
+            name = form.cleaned_data['name']
+            comment = form.cleaned_data['comment']
+            models.Comment.submit_comment(name, comment, id)
+            return redirect('home')
+        else:
+            return render(request, 'comments.html', {'comments': form})
