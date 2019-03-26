@@ -11,3 +11,8 @@ class JobForm(forms.Form):
     seniority_level = forms.CharField()
     job_description = forms.CharField()
     logo = forms.URLField()
+
+
+class CommentForm(forms.Form):
+    name = forms.CharField()
+    comment = forms.CharField()
