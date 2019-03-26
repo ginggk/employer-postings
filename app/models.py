@@ -15,8 +15,9 @@ class Posting(models.Model):
     logo = models.URLField()
 
     @staticmethod
-    def submitted(company, job_title, location, job_function, employment_type,
-                  company_industry, seniority_level, job_description, logo):
+    def submit_post(company, job_title, location, job_function,
+                    employment_type, company_industry, seniority_level,
+                    job_description, logo):
         Posting(
             company=company,
             job_title=job_title,
@@ -39,3 +40,21 @@ class Posting(models.Model):
             '''.format(self.company, self.job_title, self.location,
                        self.employment_type, self.seniority_level,
                        self.job_description, self.logo)
+
+
+class Comment(models.Model):
+    name = models.TextField()
+    comment = models.TextField()
+    post_comment = models.ForeignKey(Posting, on_delete=models.PROTECT)
+
+    def __str__(self):
+        return '''
+            Name: {}
+            Comment: {}
+            '''.format(self.name, self.comment, self.post_comment)
+
+    @staticmethod
+    def submit_comment(name, comment, post_comment_id):
+        Comment(
+            name=name, comment=comment,
+            post_comment_id=post_comment_id).save()
