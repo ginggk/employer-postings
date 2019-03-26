@@ -23,5 +23,6 @@ urlpatterns = [
     path('jobs/', views.Job.as_view(), name='job'),
     path('details/<int:id>', views.PostingDetails.as_view(), name='details'),
     path('employers/', views.ShowEmployers.as_view(), name='employers'),
-    path('resources/', views.ShowResources.as_view(), name='resources')
+    path('resources/', views.ShowResources.as_view(), name='resources'),
+    path('comment/<int:id>', views.ShowComments.as_view(), name='comments')
 ]
