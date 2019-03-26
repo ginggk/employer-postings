@@ -1,80 +1,102 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-        <title>Our Resources</title>
-        <link
-            rel="stylesheet"
-            href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
-            integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
-            crossorigin="anonymous"
-        />
-        <link rel="stylesheet" href="{% static 'style.css' %}" />
-    </head>
-    <body>
-        <nav
-            style="background-color: #3b1b0c"
-            class="navbar navbar-expand-lg border bottom border-dark"
-        >
-            <ul class="navbar-nav mr-auto nav">
-                <li class="nav-item active">
-                    <a class=" nav-link text-white" href="{% url 'home' %}">
-                        Home
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link text-white" href="{% url 'job' %}">
-                        Job Postings
-                    </a>
-                </li>
-                <li class="nav-item active">
-                    <a
-                        class=" nav-link text-white"
-                        href="{% url 'employers' %}"
-                    >
-                        Employers
-                    </a>
-                </li>
-            </ul>
-        </nav>
-        <div class=" ">
-            <header id="myCarousel" class="carousel slide ">
-                <div class="carousel-inner ">
-                    <div class="item active">
-                        <div
-                            class="fill "
-                            style="background-image:url({% static 'images/BaseCamp_HeaderFeature_1.jpg' %});"
-                        >
-                            <span class="center-spacer"></span>
-                            <img
-                                src="{% static 'images/BaseCamp_WebLogo_2.png' %}"
-                                style="vertical-align:middle;"
-                                alt="Base Camp Coding Academy"
-                            />
-                        </div>
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Our Resources</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous" />
+    <link rel="stylesheet" href="{% static 'style.css' %}" />
+</head>
+
+<body>
+    <nav style="background-color: #3b1b0c" class="navbar navbar-expand-lg border bottom border-dark">
+        <ul class="navbar-nav mr-auto nav">
+            <li class="nav-item active">
+                <a class=" nav-link text-white" href="{% url 'home' %}">
+                    Home
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-white" href="{% url 'job' %}">
+                    Job Postings
+                </a>
+            </li>
+            <li class="nav-item active">
+                <a class=" nav-link text-white" href="{% url 'employers' %}">
+                    Employers
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <div class=" ">
+        <header id="myCarousel" class="carousel slide ">
+            <div class="carousel-inner ">
+                <div class="item active">
+                    <div class="fill "
+                        style="background-image:url({% static 'images/BaseCamp_HeaderFeature_1.jpg' %});">
+                        <span class="center-spacer"></span>
+                        <img src="{% static 'images/BaseCamp_WebLogo_2.png' %}" style="vertical-align:middle;"
+                            alt="Base Camp Coding Academy" />
                     </div>
                 </div>
-            </header>
+            </div>
+        </header>
+    </div>
+    <div class="container pt-4">
+        <div class="card card-color">
+            <div class="card-header text-center text-white">
+                <h5>Welcome to some Base Camp Coding Academy resources.</h5>
+                <p>You can find out more about what Base Camp is about, here.</p>
+            </div>
         </div>
+    </div>
+    <div class="container pt-4">
+        <div class="d-flex">
+            <div class="card mr-5" style="width: 18rem;">
+                <img src="{% static 'images/inaugural-year.png' %}" class="card-img-top">
+                <div class="card-body">
+                    <a href="https://www.youtube.com/watch?v=D_Z1dhiPPxE">Inaugural Year at Base Camp Coding Academy</a>
+                </div>
+            </div>
+            <div class="card mr-5" style="width: 18rem;">
+                <img src="{% static 'images/mud&magnolias.png' %}" class="card-img-top">
+                <div class="card-body">
+                    <a href="https://mudandmagnolias.com/base-camp-coding-academy/"> Base Camp Coding Academy: No
+                        Experience Necessary </a>
+                </div>
+            </div>
+            <div class="card mr-5" style="width: 18rem;">
+                <img src="{% static 'images/pbs.png' %}" class="card-img-top">
+                <div class="card-body">
+                    <a href="https://www.pbs.org/video/getting-to-work-in-it-base-camp-coding-academy-c1jto9/">
+                        Getting to Work in IT: Base Camp Coding Academy </a>
+                </div>
+            </div>
+            <div class="card mr-5" style="width: 18rem;">
+                <img src="{% static 'images/hottytoddy.png' %}" class="card-img-top">
+                <div class="card-body">
+                    <a href="https://www.pbs.org/video/getting-to-work-in-it-base-camp-coding-academy-c1jto9/">
+                        Water Valley’s Innovative Base Camp Coding Academy Graduates Inaugural Class </a>
+                </div>
+            </div>
 
-        <script
-            src="
+        </div>
+    </div>
+
+    <script src="
         https://code.jquery.com/jquery-3.3.1.slim.min.js"
-            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-            crossorigin="anonymous"
-        ></script>
-        <script
-            src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
-            integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
-            crossorigin="anonymous"
-        ></script>
-        <script
-            src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
-            integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
-            crossorigin="anonymous"
-        ></script>
-    </body>
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+        integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous">
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+        integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous">
+    </script>
+</body>
+
 </html>
