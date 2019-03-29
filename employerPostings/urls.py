@@ -18,11 +18,14 @@ from django.urls import path
 from app import views
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
     path('', views.Home.as_view(), name='home'),
     path('jobs/', views.Job.as_view(), name='job'),
     path('details/<int:id>', views.PostingDetails.as_view(), name='details'),
     path('employers/', views.ShowEmployers.as_view(), name='employers'),
     path('resources/', views.ShowResources.as_view(), name='resources'),
-    path('comment/<int:id>', views.ShowComments.as_view(), name='comments')
+    path('comment/<int:id>', views.ShowComments.as_view(), name='comments'),
+    path('admin/', views.AdminPage.as_view(), name='admin'),
+    path(
+        'jobs/<int:id>/delete', views.DeletePost.as_view(), name='delete-job'),
+    # path('search/', views.Search.as_view(), name='search')
 ]

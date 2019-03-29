@@ -72,3 +72,25 @@ class ShowComments(View):
             return redirect('home')
         else:
             return render(request, 'comments.html', {'comments': form})
+
+
+class AdminPage(View):
+    def get(self, request):
+        return render(request, 'admin.html',
+                      {'JobForm': models.Posting.objects.all()})
+
+
+class DeletePost(View):
+    def post(self, request, id):
+        models.Posting.objects.get(id=id).delete()
+        return redirect('admin')
+
+
+class Search(View):
+    def get(self, request):
+        if request.method == 'GET':
+            # search_query = request.GET.get('submit_search', None)
+            return render(request, {
+                'search_result':
+                models.Posting.objects.all().order_by('location')
+            })

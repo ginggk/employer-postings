@@ -31,7 +31,13 @@
                     Resources
                 </a>
             </li>
+            <li class="nav-item active ">
+                <a class="nav-link text-white" href="{% url 'admin' %}">
+                    Admin
+                </a>
+            </li>
         </ul>
+
     </nav>
 
     <div class=" ">
@@ -56,10 +62,17 @@
             </div>
         </div>
     </div>
+    <form class="container pt-3" action="." method="GET">
+        {% csrf_token %}
+        <div class="d-flex">
+            <!-- <input type="text" id="search_bar" class="form-control " placeholder="Ex: Ridgeland"> -->
+            <button id="submit_search" type="" class="ml-3 mb-4 btn btn-primary">Sort A-Z </button>
+        </div>
+    </form>
     <div class="container pt-3">
         {% for post in JobForm %}
         <div class="pb-3">
-            <div class="card ">
+            <div class="card shadow">
                 <div class="card-body ">
                     <div class="d-flex justify-content-between">
                         <div>
