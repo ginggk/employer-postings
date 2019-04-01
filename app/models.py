@@ -13,6 +13,19 @@ class Posting(models.Model):
     seniority_level = models.TextField()
     job_description = models.TextField()
     logo = models.URLField()
+    date = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return '''
+            Company Name: {}
+            Job Title: {}
+            Job Location: {}
+            Employment Type: {}
+            Seniority Level: {}
+            Job Description: {}
+            '''.format(self.company, self.job_title, self.location,
+                       self.employment_type, self.seniority_level,
+                       self.job_description, self.logo)
 
     @staticmethod
     def submit_post(company, job_title, location, job_function,
@@ -28,18 +41,6 @@ class Posting(models.Model):
             seniority_level=seniority_level,
             job_description=job_description,
             logo=logo).save()
-
-    def __str__(self):
-        return '''
-            Company Name: {}
-            Job Title: {}
-            Job Location: {}
-            Employment Type: {}
-            Seniority Level: {}
-            Job Description: {}
-            '''.format(self.company, self.job_title, self.location,
-                       self.employment_type, self.seniority_level,
-                       self.job_description, self.logo)
 
 
 class Comment(models.Model):
