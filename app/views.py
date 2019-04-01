@@ -87,13 +87,6 @@ class DeletePost(View):
         return redirect('admin')
 
 
-# class AToZ(View):
-#     def get(self, request):
-#         return render(
-#             request, 'sort-by-az.html',
-#             {'JobForm': models.Posting.objects.all().order_by('job_title')})
-
-
 class AToZ(View):
     def get(self, request):
         return render(
@@ -118,3 +111,9 @@ class SortByOldestToNewest(View):
         return render(
             request, 'sort-by-oldest-to-newest.html',
             {'JobForm': models.Posting.objects.all().order_by('date')})
+
+
+class DeleteComment(View):
+    def post(self, request, id):
+        models.Comment.objects.get(id=id).delete()
+        return redirect('home')
