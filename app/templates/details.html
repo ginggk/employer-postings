@@ -102,6 +102,11 @@
                 <p>{{ comments.comment }}</p>
             </div>
         </div>
+
+        <form method="POST" action="{% url 'delete-comment' comments.id%}">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-danger">Delete Comment!</button>
+        </form>
     </div>
     {% endfor %}
     <script src="
