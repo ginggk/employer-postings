@@ -62,14 +62,15 @@
             </div>
         </div>
     </div>
-    <div class="container pt-3">
-        <div class="d-flex">
-            <a href="{% url 'newest-to-oldest' %}" class="ml-3 mb-4 btn btn-info text-white"> Newest-Oldest</a>
-            <a href="{% url 'oldest-to-newest' %}" class="ml-3 mb-4 btn btn-info text-white">Oldest-Newest</a>
-            <a href="{% url 'az' %}" class="ml-3 mb-4 btn btn-info">A-Z</a>
-        </div>
+    <!-- <form class="container pt-3" action="." method="GET"> -->
+    <!-- {% csrf_token %} -->
+    <div class="d-flex container pt-3">
+        <!-- <input type="text" id="search_bar" class="form-control " placeholder="Ex: Ridgeland"> -->
+        <a href="{% url 'newest-to-oldest' %}" class="ml-3 mb-4 btn btn-info">Newest-Oldest </a>
+        <a href="{% url 'oldest-to-newest' %}" class="ml-3 mb-4 btn btn-info">Oldest-Newest </a>
+        <a href="{% url 'az' %}" class="ml-3 mb-4 btn btn-info">A-Z</a>
     </div>
-
+    </form>
     <div class="container pt-3">
         {% for post in JobForm %}
         <div class="pb-3">

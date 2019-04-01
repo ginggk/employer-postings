@@ -64,9 +64,14 @@
     </div>
     <div class="container pt-3">
         <div class="d-flex">
+
             <a href="{% url 'newest-to-oldest' %}" class="ml-3 mb-4 btn btn-info text-white"> Newest-Oldest</a>
             <a href="{% url 'oldest-to-newest' %}" class="ml-3 mb-4 btn btn-info text-white">Oldest-Newest</a>
-            <a href="{% url 'az' %}" class="ml-3 mb-4 btn btn-info">A-Z</a>
+
+            <a class="ml-3 mb-4 btn btn-info" href="{% url 'az' %}" type="submit">
+                A-Z
+            </a>
+            <!-- <a href="{% url 'az' %}" class="ml-3 mb-4 btn btn-info">A-Z</a> -->
         </div>
     </div>
 
