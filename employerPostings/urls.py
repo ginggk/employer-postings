@@ -27,5 +27,15 @@ urlpatterns = [
     path('admin/', views.AdminPage.as_view(), name='admin'),
     path(
         'jobs/<int:id>/delete', views.DeletePost.as_view(), name='delete-job'),
+    # path('sort-by-az', views.AToZ.as_view(), name='sort-by-az'),
+    path('az/', views.AToZ.as_view(), name='az'),
+    path(
+        'newesttooldest/',
+        views.SortByNewestToOldest.as_view(),
+        name='newest-to-oldest'),
+    path(
+        'oldesttonewest/',
+        views.SortByOldestToNewest.as_view(),
+        name='oldest-to-newest')
     # path('search/', views.Search.as_view(), name='search')
 ]
