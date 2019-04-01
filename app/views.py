@@ -22,6 +22,7 @@ class Job(View):
         if form.is_valid():
             company = form.cleaned_data['company']
             job_title = form.cleaned_data['job_title']
+
             location = form.cleaned_data['location']
             job_function = form.cleaned_data['job_function']
             employment_type = form.cleaned_data['employment_type']
@@ -86,11 +87,34 @@ class DeletePost(View):
         return redirect('admin')
 
 
-class Search(View):
+# class AToZ(View):
+#     def get(self, request):
+#         return render(
+#             request, 'sort-by-az.html',
+#             {'JobForm': models.Posting.objects.all().order_by('job_title')})
+
+
+class AToZ(View):
     def get(self, request):
-        if request.method == 'GET':
-            # search_query = request.GET.get('submit_search', None)
-            return render(request, {
-                'search_result':
-                models.Posting.objects.all().order_by('location')
+        return render(
+            request, 'az.html', {
+                'JobForm':
+                models.Posting.objects.all().extra(
+                    select={
+                        'lower_job_title': 'lower(job_title)'
+                    }).order_by('lower_job_title')
             })
+
+
+class SortByNewestToOldest(View):
+    def get(self, request):
+        return render(
+            request, 'sort-by-newest-to-oldest.html',
+            {'JobForm': models.Posting.objects.all().order_by('-date')})
+
+
+class SortByOldestToNewest(View):
+    def get(self, request):
+        return render(
+            request, 'sort-by-oldest-to-newest.html',
+            {'JobForm': models.Posting.objects.all().order_by('date')})
