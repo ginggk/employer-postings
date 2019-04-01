@@ -36,6 +36,9 @@ urlpatterns = [
     path(
         'oldesttonewest/',
         views.SortByOldestToNewest.as_view(),
-        name='oldest-to-newest')
-    # path('search/', views.Search.as_view(), name='search')
+        name='oldest-to-newest'),
+    path(
+        'comment/<int:id>/delete',
+        views.DeleteComment.as_view(),
+        name="delete-comment")
 ]
